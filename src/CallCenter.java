@@ -18,13 +18,16 @@ public class CallCenter {
     }
 
     public void takeTheCall(){
+
         while (!phoneCalls.isEmpty()) {
             try {
                 Thread.sleep(ANSWER);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            if (phoneCalls.peek() != null){
             System.out.println("Специалист " + Thread.currentThread().getName() + " ответил на звонок " + phoneCalls.poll());
         }
+            }
     }
 }
